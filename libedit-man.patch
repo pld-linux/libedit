@@ -1,0 +1,11 @@
+--- libedit-20041207-2.9/doc/Makefile.am.orig	2004-11-06 10:16:18.000000000 +0100
++++ libedit-20041207-2.9/doc/Makefile.am	2005-03-10 22:38:31.942020328 +0100
+@@ -12,7 +12,7 @@
+ install-data-hook: $(EL_MAN_LINKS)
+ 
+ $(EL_MAN_LINKS):
+-	(cd $(DESTDIR)$(man3dir) && rm -f $@ && $(LN_S) editline.3 $@)
++	(cd $(DESTDIR)$(man3dir) && rm -f $@ && echo '.so editline.3' > $@)
+ 
+ $(EL_MANS):
+ 	if test "$(MANTYPE)" = "mdoc"; then\

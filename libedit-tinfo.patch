@@ -1,0 +1,21 @@
+--- libedit-20041207-2.9/configure.ac.orig	2004-12-07 22:34:22.000000000 +0100
++++ libedit-20041207-2.9/configure.ac	2005-03-10 22:26:26.629284624 +0100
+@@ -17,15 +17,15 @@
+ esac
+ 
+ # Checks for programs.
+-AC_PROG_CXX
+ AC_PROG_CC
+ AC_PROG_LN_S
+ AC_PROG_AWK
+ EL_MANTYPE
+ 
+-AC_CHECK_LIB(curses, tgetent,,
++AC_CHECK_LIB(tinfo, tgetent,,
+    [AC_CHECK_LIB(ncurses, tgetent,,
+-      [AC_MSG_ERROR([libtermcap, libcurses or libncurses are required!])] )] )
++   [AC_CHECK_LIB(curses, tgetent,,
++      [AC_MSG_ERROR([libtermcap, libcurses or libncurses are required!])] )] )] )
+ 
+ # Checks for header files.
+ AC_FUNC_ALLOCA

@@ -73,6 +73,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/*
 %{_mandir}/man3/*
+# conflict with heimdal, does heimdal use some internal libedit?
+%exclude %{_mandir}/man3/editline*
 
 %files static
 %defattr(644,root,root,755)

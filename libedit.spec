@@ -3,7 +3,7 @@ Summary(pl):	Biblioteka Editline (edytor linii poleceñ)
 Name:		libedit
 Version:	2.9
 %define	snap	20041207
-Release:	1
+Release:	2
 Epoch:		0
 License:	BSD
 Group:		Libraries

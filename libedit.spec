@@ -1,8 +1,12 @@
+# TODO: resolve conflict with heimdal (use shared editline in heimdal?)
+# remove (static-only) libeditline (+devel) from heimdal
 %define	snap	20041207
 Summary:	Editline Library
+Summary(pl):	Biblioteka Editline (edytor linii poleceñ)
 Name:		libedit
 Version:	2.9
 Release:	1
+Epoch:		0
 License:	BSD
 Group:		Libraries
 Source0:	http://www.thrysoee.dk/editline/%{name}-%{snap}-%{version}.tar.gz
@@ -17,27 +21,35 @@ licensed command line editor library provides generic line editing,
 history, and tokenization functions, similar to those found in GNU
 Readline.
 
+%description -l pl
+Port biblioteki Editline z NetBSD (libedit). Jest to biblioteka
+edytora linii poleceñ na licencji w stylu BSD udostêpniaj±ca
+funkcjonalno¶æ ogólnego modyfikowania linii, historii oraz tokenizacji
+podobn± do obecnych w GNU Readline.
+
 %package devel
-Summary:	Header files and develpment documentation for libedit
+Summary:	Header files and development documentation for libedit
+Summary(pl):	Pliki nag³ówkowe i dokumentacja programisty do libedit
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description devel
-Port of the NetBSD Editline library (libedit). This Berkeley-style
-licensed command line editor library provides generic line editing,
-history, and tokenization functions, similar to those found in GNU
-Readline.
+Header files and development documentation for libedit.
+
+%description devel -l pl
+Pliki nag³ówkowe i dokumentacja programisty do libedit.
 
 %package static
 Summary:	Static libedit library
+Summary(pl):	Statyczna biblioteka libedit
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
-Port of the NetBSD Editline library (libedit). This Berkeley-style
-licensed command line editor library provides generic line editing,
-history, and tokenization functions, similar to those found in GNU
-Readline.
+Static libedit library.
+
+%description static -l pl
+Statyczna biblioteka libedit.
 
 %prep
 %setup -q -n %{name}-%{snap}-%{version}
@@ -73,7 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/*
 %{_mandir}/man3/*
-# conflict with heimdal, does heimdal use some internal libedit?
+# to be removed after removing libeditline from heimdal?
 %exclude %{_mandir}/man3/editline*
 
 %files static

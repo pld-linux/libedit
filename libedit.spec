@@ -1,4 +1,6 @@
+# Conditional build:
 %bcond_without	static_libs	# don't build static library
+#
 Summary:	Editline Library
 Summary(pl):	Biblioteka Editline (edytor linii poleceñ)
 Name:		libedit

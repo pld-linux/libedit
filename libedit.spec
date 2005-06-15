@@ -1,3 +1,4 @@
+%bcond_without	static_libs	# don't build static library
 Summary:	Editline Library
 Summary(pl):	Biblioteka Editline (edytor linii poleceñ)
 Name:		libedit
@@ -70,7 +71,8 @@ Statyczna biblioteka libedit.
 LANG=C; export LANG
 LC_ALL=C; export LC_ALL
 CPPFLAGS="-I%{_includedir}/ncurses"
-%configure
+%configure \
+	%{!?with_static_libs:--disable-static}
 %{__make} -C src vi.h emacs.h common.h
 %{__make}
 
@@ -99,6 +101,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/*
 %{_mandir}/man3/*
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libedit.a
+%endif

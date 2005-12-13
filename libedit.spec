@@ -72,7 +72,7 @@ Statyczna biblioteka libedit.
 %{__automake}
 LANG=C; export LANG
 LC_ALL=C; export LC_ALL
-CPPFLAGS="-I%{_includedir}/ncurses"
+CPPFLAGS="-I/usr/include/ncurses"
 %configure \
 	%{!?with_static_libs:--disable-static}
 %{__make} -C src vi.h emacs.h common.h

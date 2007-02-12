@@ -3,7 +3,7 @@
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	Editline Library
-Summary(pl):	Biblioteka Editline (edytor linii poleceñ)
+Summary(pl.UTF-8):   Biblioteka Editline (edytor linii poleceÅ„)
 Name:		libedit
 Version:	2.9
 %define	snap	20050828
@@ -28,15 +28,15 @@ licensed command line editor library provides generic line editing,
 history, and tokenization functions, similar to those found in GNU
 Readline.
 
-%description -l pl
+%description -l pl.UTF-8
 Port biblioteki Editline z NetBSD (libedit). Jest to biblioteka
-edytora linii poleceñ na licencji w stylu BSD udostêpniaj±ca
-funkcjonalno¶æ ogólnego modyfikowania linii, historii oraz tokenizacji
-podobn± do obecnych w GNU Readline.
+edytora linii poleceÅ„ na licencji w stylu BSD udostÄ™pniajÄ…ca
+funkcjonalnoÅ›Ä‡ ogÃ³lnego modyfikowania linii, historii oraz tokenizacji
+podobnÄ… do obecnych w GNU Readline.
 
 %package devel
 Summary:	Header files and development documentation for libedit
-Summary(pl):	Pliki nag³ówkowe i dokumentacja programisty do libedit
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe i dokumentacja programisty do libedit
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	ncurses-devel
@@ -45,19 +45,19 @@ Conflicts:	heimdal-devel <= 0.6.3-1
 %description devel
 Header files and development documentation for libedit.
 
-%description devel -l pl
-Pliki nag³ówkowe i dokumentacja programisty do libedit.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe i dokumentacja programisty do libedit.
 
 %package static
 Summary:	Static libedit library
-Summary(pl):	Statyczna biblioteka libedit
+Summary(pl.UTF-8):   Statyczna biblioteka libedit
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 Static libedit library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka libedit.
 
 %prep

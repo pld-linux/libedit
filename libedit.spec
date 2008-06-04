@@ -95,15 +95,18 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog THANKS
 %attr(755,root,root) %{_libdir}/libedit.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libedit.so.0
 %{_mandir}/man5/editrc.5*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libedit.so
 %{_libdir}/libedit.la
-%{_includedir}/*
-%{_pkgconfigdir}/*.pc
-%{_mandir}/man3/*
+%{_includedir}/editline
+%{_includedir}/histedit.h
+%{_pkgconfigdir}/libedit.pc
+%{_mandir}/man3/editline.3*
+%{_mandir}/man3/el_*.3*
 
 %if %{with static_libs}
 %files static

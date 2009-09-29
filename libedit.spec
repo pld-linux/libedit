@@ -6,13 +6,13 @@ Summary:	Editline Library
 Summary(pl.UTF-8):	Biblioteka Editline (edytor linii poleceń)
 Name:		libedit
 Version:	3.0
-%define	snap	20090905
-Release:	2
+%define	snap	20090923
+Release:	3
 Epoch:		0
 License:	BSD
 Group:		Libraries
 Source0:	http://www.thrysoee.dk/editline/%{name}-%{snap}-%{version}.tar.gz
-# Source0-md5:	f655879744a81ff38525d762db41d86f
+# Source0-md5:	1e6dad38e8499d71b9c78045e5536734
 Patch0:		%{name}-tinfo.patch
 Patch1:		%{name}-man.patch
 URL:		http://www.thrysoee.dk/editline/

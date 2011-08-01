@@ -16,7 +16,7 @@ Source0:	http://www.thrysoee.dk/editline/%{name}-%{snap}-%{version}.tar.gz
 Patch0:		%{name}-tinfo.patch
 Patch1:		%{name}-man.patch
 URL:		http://www.thrysoee.dk/editline/
-BuildRequires:	autoconf >= 2.50
+BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
@@ -76,6 +76,7 @@ LC_ALL=C; export LC_ALL
 CPPFLAGS="-I/usr/include/ncurses"
 %configure \
 	--enable-widec \
+	--disable-silent-rules \
 	%{!?with_static_libs:--disable-static}
 
 %{__make} -C src vi.h emacs.h common.h

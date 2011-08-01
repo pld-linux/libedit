@@ -6,13 +6,13 @@ Summary:	Editline Library
 Summary(pl.UTF-8):	Biblioteka Editline (edytor linii poleceń)
 Name:		libedit
 Version:	3.0
-%define	snap	20090923
-Release:	3
+%define	snap	20110709
+Release:	4
 Epoch:		0
 License:	BSD
 Group:		Libraries
 Source0:	http://www.thrysoee.dk/editline/%{name}-%{snap}-%{version}.tar.gz
-# Source0-md5:	1e6dad38e8499d71b9c78045e5536734
+# Source0-md5:	16aaa9840e0e71c24416a223b4ff58b1
 Patch0:		%{name}-tinfo.patch
 Patch1:		%{name}-man.patch
 URL:		http://www.thrysoee.dk/editline/
@@ -75,7 +75,9 @@ LANG=C; export LANG
 LC_ALL=C; export LC_ALL
 CPPFLAGS="-I/usr/include/ncurses"
 %configure \
+	--enable-widec \
 	%{!?with_static_libs:--disable-static}
+
 %{__make} -C src vi.h emacs.h common.h
 %{__make}
 

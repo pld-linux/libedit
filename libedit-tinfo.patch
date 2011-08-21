@@ -1,15 +1,20 @@
---- libedit-20041207-2.9/configure.ac.orig	2004-12-07 22:34:22.000000000 +0100
-+++ libedit-20041207-2.9/configure.ac	2005-03-10 22:26:26.629284624 +0100
-@@ -17,9 +17,10 @@
- AC_PROG_AWK
+--- libedit-20110802-3.0/configure.ac~	2011-08-02 10:09:05.000000000 +0200
++++ libedit-20110802-3.0/configure.ac	2011-08-21 10:54:16.702923119 +0200
+@@ -44,7 +44,8 @@
  EL_MANTYPE
  
--AC_CHECK_LIB(curses, tgetent,,
+ 
+-AC_CHECK_LIB(terminfo, tgetent,,
 +AC_CHECK_LIB(tinfo, tgetent,,
-    [AC_CHECK_LIB(ncurses, tgetent,,
--      [AC_MSG_ERROR([libcurses or libncurses are required!])] )] )
-+   [AC_CHECK_LIB(curses, tgetent,,
-+      [AC_MSG_ERROR([libcurses or libncurses are required!])] )] )] )
++  [AC_CHECK_LIB(terminfo, tgetent,,
+     [AC_CHECK_LIB(termcap, tgetent,,
+        [AC_CHECK_LIB(termlib, tgetent,,
+            [AC_CHECK_LIB(curses, tgetent,,
+@@ -54,6 +55,7 @@
+            )]
+        )]
+     )]
++  )]
+ )
  
  
- ### use option --enable-widec to turn on use of wide-character support

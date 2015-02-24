@@ -3,7 +3,7 @@
 %bcond_without	static_libs	# don't build static library
 #
 %define	snap	20141030
-%define	rel	1
+%define	rel	2
 Summary:	Editline Library
 Summary(pl.UTF-8):	Biblioteka Editline (edytor linii poleceń)
 Name:		libedit

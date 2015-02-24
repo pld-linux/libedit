@@ -2,12 +2,13 @@
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
 #
+%define	snap	20141030
+%define	rel	1
 Summary:	Editline Library
 Summary(pl.UTF-8):	Biblioteka Editline (edytor linii poleceń)
 Name:		libedit
 Version:	3.1
-%define	snap	20141030
-Release:	1.%{snap}.1
+Release:	1.%{snap}.%{rel}
 Epoch:		0
 License:	BSD
 Group:		Libraries

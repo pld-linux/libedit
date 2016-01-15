@@ -2,8 +2,8 @@
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
 #
-%define	snap	20141030
-%define	rel	2
+%define	snap	20150325
+%define	rel	1
 Summary:	Editline Library
 Summary(pl.UTF-8):	Biblioteka Editline (edytor linii poleceń)
 Name:		libedit
@@ -13,7 +13,7 @@ Epoch:		0
 License:	BSD
 Group:		Libraries
 Source0:	http://www.thrysoee.dk/editline/%{name}-%{snap}-%{version}.tar.gz
-# Source0-md5:	5f18e63346d31b877cdf36b5c59b810b
+# Source0-md5:	43cdb5df3061d78b5e9d59109871b4f6
 Patch0:		%{name}-man.patch
 URL:		http://www.thrysoee.dk/editline/
 BuildRequires:	autoconf >= 2.61
@@ -61,8 +61,7 @@ Static libedit library.
 Statyczna biblioteka libedit.
 
 %prep
-#%setup -q -n %{name}-%{snap}-%{version}
-%setup -q -n %{name}-20141029-%{version}
+%setup -q -n %{name}-%{snap}-%{version}
 %patch0 -p1
 
 %build

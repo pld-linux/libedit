@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
 #
-%define	snap	20181209
+%define	snap	20190324
 %define	rel	1
 Summary:	Editline Library
 Summary(pl.UTF-8):	Biblioteka Editline (edytor linii poleceń)
@@ -13,7 +13,7 @@ Epoch:		0
 License:	BSD
 Group:		Libraries
 Source0:	http://thrysoee.dk/editline/%{name}-%{snap}-%{version}.tar.gz
-# Source0-md5:	22e945a0476e388e6f78bfc8d6e1192c
+# Source0-md5:	bec755c8044ad84b752dfe49a0b371d8
 Patch0:		%{name}-man.patch
 URL:		http://thrysoee.dk/editline/
 BuildRequires:	autoconf >= 2.61

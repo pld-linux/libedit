@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
 #
-%define	snap	20190324
+%define	snap	20191231
 %define	rel	1
 Summary:	Editline Library
 Summary(pl.UTF-8):	Biblioteka Editline (edytor linii poleceń)
@@ -13,7 +13,7 @@ Epoch:		0
 License:	BSD
 Group:		Libraries
 Source0:	http://thrysoee.dk/editline/%{name}-%{snap}-%{version}.tar.gz
-# Source0-md5:	bec755c8044ad84b752dfe49a0b371d8
+# Source0-md5:	2e22a51131de94ff2df24901f7cfe416
 Patch0:		%{name}-man.patch
 URL:		http://thrysoee.dk/editline/
 BuildRequires:	autoconf >= 2.61
@@ -72,7 +72,7 @@ Statyczna biblioteka libedit.
 %{__automake}
 LANG=C; export LANG
 LC_ALL=C; export LC_ALL
-CPPFLAGS="-I/usr/include/ncurses"
+CPPFLAGS="%{rpmcppflags} -I/usr/include/ncurses"
 %configure \
 	--enable-widec \
 	--disable-silent-rules \
@@ -89,6 +89,8 @@ rm -rf $RPM_BUILD_ROOT
 
 # conflicts with readline
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/man3/history.3
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libedit.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -106,7 +108,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libedit.so
-%{_libdir}/libedit.la
 %{_includedir}/editline
 %{_includedir}/histedit.h
 %{_pkgconfigdir}/libedit.pc

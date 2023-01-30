@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
 #
-%define	snap	20191231
+%define	snap	20221030
 %define	rel	1
 Summary:	Editline Library
 Summary(pl.UTF-8):	Biblioteka Editline (edytor linii poleceń)
@@ -12,13 +12,13 @@ Release:	1.%{snap}.%{rel}
 Epoch:		0
 License:	BSD
 Group:		Libraries
-Source0:	http://thrysoee.dk/editline/%{name}-%{snap}-%{version}.tar.gz
-# Source0-md5:	2e22a51131de94ff2df24901f7cfe416
+Source0:	https://thrysoee.dk/editline/%{name}-%{snap}-%{version}.tar.gz
+# Source0-md5:	103fc913cf691dbe391dcf7bff0e6a84
 Patch0:		%{name}-man.patch
-URL:		http://thrysoee.dk/editline/
+URL:		https://thrysoee.dk/editline/
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2
 BuildRequires:	ncurses-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -66,7 +66,7 @@ Statyczna biblioteka libedit.
 
 %build
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
@@ -79,6 +79,7 @@ CPPFLAGS="%{rpmcppflags} -I/usr/include/ncurses"
 	%{!?with_static_libs:--disable-static}
 
 %{__make} -C src vi.h emacs.h common.h
+
 %{__make}
 
 %install

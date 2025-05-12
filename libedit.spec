@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
 #
-%define	snap	20230828
+%define	snap	20250104
 %define	rel	1
 Summary:	Editline Library
 Summary(pl.UTF-8):	Biblioteka Editline (edytor linii poleceń)
@@ -13,7 +13,7 @@ Epoch:		0
 License:	BSD
 Group:		Libraries
 Source0:	https://thrysoee.dk/editline/%{name}-%{snap}-%{version}.tar.gz
-# Source0-md5:	16bb2ab0d33bce3467f5cd4ec7d8f3ee
+# Source0-md5:	3b2c3c4ab30374bf975d69b5bcc220b6
 Patch0:		%{name}-man.patch
 URL:		https://thrysoee.dk/editline/
 BuildRequires:	autoconf >= 2.61
@@ -62,7 +62,7 @@ Statyczna biblioteka libedit.
 
 %prep
 %setup -q -n %{name}-%{snap}-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__libtoolize}
@@ -88,8 +88,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# conflicts with readline
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/man3/history.3
 # obsoleted by pkg-config
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libedit.la
 
@@ -114,21 +112,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/libedit.pc
 %{_mandir}/man3/editline.3*
 %{_mandir}/man3/el_*.3*
-%{_mandir}/man3/history_end.3*
-%{_mandir}/man3/history_init.3*
-%{_mandir}/man3/history_w.3*
-%{_mandir}/man3/history_wend.3*
-%{_mandir}/man3/history_winit.3*
-%{_mandir}/man3/tok_end.3*
-%{_mandir}/man3/tok_init.3*
-%{_mandir}/man3/tok_line.3*
-%{_mandir}/man3/tok_reset.3*
-%{_mandir}/man3/tok_str.3*
-%{_mandir}/man3/tok_wend.3*
-%{_mandir}/man3/tok_winit.3*
-%{_mandir}/man3/tok_wline.3*
-%{_mandir}/man3/tok_wreset.3*
-%{_mandir}/man3/tok_wstr.3*
 %{_mandir}/man7/editline.7*
 
 %if %{with static_libs}

@@ -3,7 +3,7 @@
 %bcond_without	static_libs	# don't build static library
 #
 %define	snap	20250104
-%define	rel	1
+%define	rel	2
 Summary:	Editline Library
 Summary(pl.UTF-8):	Biblioteka Editline (edytor linii poleceń)
 Name:		libedit
@@ -38,7 +38,7 @@ podobną do obecnych w GNU Readline.
 Summary:	Header files and development documentation for libedit
 Summary(pl.UTF-8):	Pliki nagłówkowe i dokumentacja programisty do libedit
 Group:		Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name}%{?_isa} = %{epoch}:%{version}-%{release}
 Requires:	ncurses-devel
 Conflicts:	heimdal-devel <= 0.6.3-1
 
@@ -52,7 +52,7 @@ Pliki nagłówkowe i dokumentacja programisty do libedit.
 Summary:	Static libedit library
 Summary(pl.UTF-8):	Statyczna biblioteka libedit
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
+Requires:	%{name}-devel%{?_isa} = %{epoch}:%{version}-%{release}
 
 %description static
 Static libedit library.
